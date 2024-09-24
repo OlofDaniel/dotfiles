@@ -1,34 +1,27 @@
-PROMPT="%F{#66b993}➜%f "
+#       -------
+#       Aliases
+#       -------
 
+alias devv="cd /Users/do/dev"
 alias l="ls" # List files in current directory
 alias ll="ls -al" # List all files in current directory in long list format
-alias devv="cd /Users/do/dev"
 
-preexec() {
-    last_command=$1
+#       -----------
+#       Git Aliases
+#       -----------
+
+alias gitaa='git add .'
+alias gitcm='git commit -m'
+alias gits='git status'
+alias gitb='git branch'
+alias gitco='git checkout'
+
+
+
+function parse_git_branch() {
+    git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/(\1)/p'
 }
 
 
-
-
-precmd() {
-  if [[ $last_command != "javac"* && $last_command != "java"* ]]; then
-    echo ""
-    echo -e "\e[96mdir -\e[35m ~$(pwd)\e[0m"
-    echo ""
-  fi
-}
-
-chpwd() {
-    clear
-   # echo ""
-   # echo -e "\e[35m~$(pwd)\e[0m"
-   # echo ""
-}
-
-autoload -Uz compinit
-compinit
-
-zstyle ':completion:*' menu select
-
-
+setopt PROMPT_SUBST
+export PROMPT='%F{white}  %F{cyan}~/%1d%F{green}$(parse_git_branch) %F{magenta}❯%f '
