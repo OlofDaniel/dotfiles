@@ -1,6 +1,7 @@
 #       -------
 #       Aliases
 #       -------
+#
 
 alias devv="cd /Users/do/dev"
 alias l="ls" # List files in current directory
