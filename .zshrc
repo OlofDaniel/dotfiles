@@ -23,6 +23,20 @@ function parse_git_branch() {
     git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/(\1)/p'
 }
 
+autoload -Uz compinit
+compinit
+
+zstyle ':completion:*' menu select
+
+zstyle ':completion:*' list-colors 'di=01;34'
 
 setopt PROMPT_SUBST
-export PROMPT='%F{white}  %F{cyan}~/%1d%F{green}$(parse_git_branch) %F{magenta}❯%f '
+PROMPT='%F{green}$(parse_git_branch)%f%F{magenta}❯%f '
+RPROMPT='%F{cyan}%1d%f'
+
+
+chpwd(){
+
+        print -P "%F{cyan}  cd%f %F{green}➜%f %F{cyan}$(pwd)%f"
+
+}
