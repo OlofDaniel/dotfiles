@@ -1,0 +1,70 @@
+let mapleader=" "
+inoremap jk <Esc>
+nnoremap <leader>cs :nohlsearch<CR>
+
+set ignorecase
+set smartcase
+
+nnoremap <leader>sr :%s/
+
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+
+nnoremap <leader>sv :vsplit<CR>
+nnoremap <leader>sh :split<CR>
+nnoremap <leader>se <C-w>=
+nnoremap <leader>sx :close<CR>
+
+nnoremap L $
+vnoremap L $
+onoremap L $
+
+nnoremap H ^
+vnoremap H ^
+onoremap H ^
+
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
+vnoremap < <gv
+vnoremap > >gv
+
+nmap <leader>bd <Action>(CloseContent)
+nmap <leader>bb <Action>(Switcher)
+
+nmap <Tab> <Action>(NextTab)
+nmap <S-Tab> <Action>(PreviousTab)
+
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+
+nnoremap <C-a> ggVG
+
+" Telescope-like
+nmap <C-p> <Action>(GotoFile)
+nmap <C-g> <Action>(FindInPath)
+
+" Surround
+set surround
+
+" JetBrains smart surround
+nmap <leader>s <Action>(SurroundWith)
+vmap <leader>s <Action>(SurroundWith)
+
+set number
+set relativenumber
+set signcolumn=yes
+set tabstop=2
+set shiftwidth=2
+set expandtab
+set autoindent
+set nowrap
+set cursorline
+set scrolloff=10
+set clipboard+=unnamedplus
+set splitright
+set splitbelow
+set backspace=indent,eol,start
+
+sethandler <C-j> a:ide
+sethandler <C-k> a:ide
