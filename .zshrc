@@ -21,14 +21,14 @@ autoload -Uz vcs_info
 
 zstyle ':vcs_info:*' enable git
 
-zstyle ':vcs_info:git:*' formats ' %F{green} %b%f'
+zstyle ':vcs_info:git:*' formats ' %F{white}on %F{green}%b%f'
 
 precmd() {
     vcs_info
 }
 setopt PROMPT_SUBST
 
-PROMPT='%F{cyan}%~%f${vcs_info_msg_0_} %(?.%F{green}.%F{red})$%f '
+PROMPT='%F{white} %F{yellow}%n %F{white}at %F{magenta}%m %F{white}in %F{blue}%~%f${vcs_info_msg_0_} %(?.%F{green}.%F{red})❯%f '
 
 
 autoload -U up-line-or-beginning-search
